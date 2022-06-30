@@ -29,9 +29,10 @@ function TodoList({ todos, updateTodos, completeTodo, removeTodo }) {
                         <li key={index} className={`${'flex items-center justify-between gap-4 text-left bg-white rounded-lg py-2 px-4 pl-2'} ${todo.isComplete ? 'completeTodo' : ''}`}>
                             <div className='flex items-center gap-2'>
                                 <Checkbox onClick={() => completeTodo(todo.id)} color="teal" />
-                                <Typography>
-                                    {todo.text}
-                                </Typography>
+                                {
+                                    todo.isComplete ? <del>{todo.text}</del> : <Typography>{todo.text}</Typography>
+                                }
+                                
                             </div>
                             <div className='flex items-center gap-2'>
                                 <IconButton color="blue">
