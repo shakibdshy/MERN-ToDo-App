@@ -21,7 +21,7 @@ function Header() {
                       </Link>
                   </li>
                   <li>
-                      <Link href='/'>
+                      <Link href='/complete'>
                           <a className='text-black font-bold text-base transition-all hover:text-teal-800'>Complete Tasks</a>
                       </Link>
                   </li>
