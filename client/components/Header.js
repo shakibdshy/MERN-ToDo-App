@@ -16,7 +16,7 @@ function Header() {
                       </Link>
                   </li>
                   <li>
-                      <Link href='/'>
+                      <Link href='/todo'>
                           <a className='text-black font-bold text-base transition-all hover:text-teal-800'>To-Do</a>
                       </Link>
                   </li>
@@ -26,7 +26,7 @@ function Header() {
                       </Link>
                   </li>
                   <li>
-                      <Link href='/'>
+                      <Link href='/calender'>
                           <a className='text-black font-bold text-base transition-all hover:text-teal-800'>Calendar</a>
                       </Link>
                   </li>
