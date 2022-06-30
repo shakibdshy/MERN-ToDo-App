@@ -1,8 +1,7 @@
-import { Button, Checkbox, IconButton, Input, Navbar, Typography } from '@material-tailwind/react'
 import Head from 'next/head'
-import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import { MdDelete, MdOutlineSystemUpdateAlt } from 'react-icons/md'
+import Header from '../components/Header'
+import Todo from '../components/Todo'
 
 export default function Home() {
     return (
@@ -13,78 +12,10 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <header>
-                <Navbar className="mx-auto max-w-screen-xl mt-4 flex items-center justify-between gap-4">
-                    <Link href='/'>
-                        <a className='text-black font-bold text-xl uppercase'>Logo</a>
-                    </Link>
-                    <ul className='flex items-center gap-4'>
-                        <li>
-                            <Link href='/'>
-                                <a className='text-black font-bold text-base transition-all hover:text-teal-800'>Home</a>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href='/'>
-                                <a className='text-black font-bold text-base transition-all hover:text-teal-800'>To-Do</a>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href='/'>
-                                <a className='text-black font-bold text-base transition-all hover:text-teal-800'>Complete Tasks</a>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href='/'>
-                                <a className='text-black font-bold text-base transition-all hover:text-teal-800'>Calendar</a>
-                            </Link>
-                        </li>
-                    </ul>
-                </Navbar>
-            </header>
+            <Header />
 
             <main className='py-24 text-center container mx-auto px-4'>
-                <h1 className="text-6xl font-bold mb-10">Todo List</h1>
-                <div className='max-w-2xl mx-auto'>
-                    <form className='flex w-full items-end gap-4 mb-8'>
-                        <Input size="lg" variant="standard" label="Add a task" />
-                        <Button type='button'>Add</Button>
-                    </form>
-                    <ul className='flex flex-col gap-4'>
-                        <li className='flex items-center justify-between gap-4 text-left bg-white rounded-lg py-2 px-4 pl-2'>
-                            <div className='flex items-center gap-2'>
-                                <Checkbox color="teal" />
-                                <Typography>
-                                    Material Tailwind is an easy to use components
-                                </Typography>
-                            </div>
-                            <div className='flex items-center gap-2'>
-                                <IconButton color="blue">
-                                    <MdOutlineSystemUpdateAlt className='text-xl' />
-                                </IconButton>
-                                <IconButton color="red">
-                                    <MdDelete className='text-xl' />
-                                </IconButton>
-                            </div>
-                        </li>
-                        <li className='flex items-center justify-between gap-4 text-left bg-white rounded-lg py-2 px-4 pl-2'>
-                            <div className='flex items-center gap-2'>
-                                <Checkbox color="teal" />
-                                <Typography>
-                                    Material Tailwind is an easy to use components
-                                </Typography>
-                            </div>
-                            <div className='flex items-center gap-2'>
-                                <IconButton color="blue">
-                                    <MdOutlineSystemUpdateAlt className='text-xl' />
-                                </IconButton>
-                                <IconButton color="red">
-                                    <MdDelete className='text-xl' />
-                                </IconButton>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <Todo />
             </main>
 
         </div>
