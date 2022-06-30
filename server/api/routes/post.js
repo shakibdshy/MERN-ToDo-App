@@ -41,12 +41,12 @@ router.get('/:id', async (req, res) => {
     }
 });
 // Get All
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
     try {
         const posts = await Post.find();
         res.status(200).json(posts);
-    } catch (error) {
-        res.status(500).json(err)
+    } catch (err) {
+        next(err);
     }
 });
 

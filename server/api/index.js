@@ -24,6 +24,17 @@ app.use(express.json());
 
 app.use("/api/post", postRouter);
 
+app.use((err, req, res, next) => { 
+    const errorStatus = err.status || 500;
+    const errorMessage = err.message || 500;
+    res.status(err).json({
+        success: false,
+        status: errorStatus,
+        message: errorMessage,
+        stack: err.stack,
+    })
+})
+
 app.listen(5000, () => {
     connect()
     console.log("Server on port 5000")
