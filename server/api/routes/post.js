@@ -24,6 +24,7 @@ router.put('/:id', async (req, res) => {
         res.status(500).json(error)
     }
 });
+
 // Delete
 router.delete('/:id', async (req, res) => {
     try {
@@ -33,6 +34,7 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json({succss : false, error : error.message})
     }
 });
+
 // Get
 router.get('/:id', async (req, res) => {
     try {
@@ -42,6 +44,7 @@ router.get('/:id', async (req, res) => {
         res.status(500).json(err)
     }
 });
+
 // Get All
 router.get('/', async (req, res, next) => {
     try {
