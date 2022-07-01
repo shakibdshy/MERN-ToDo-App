@@ -1,4 +1,5 @@
 import { Button, Input } from '@material-tailwind/react'
+import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
 import { useStateContext } from '../context/StateContext'
 
@@ -10,9 +11,24 @@ function TodoForm() {
         setTodoName(e.target.value)
     }
 
-    const handleSubmit = e => { 
-        e.preventDefault()
-        setTodos([...todos, { name: todoName, complete: false }])
+    const handleSubmit = async e => { 
+        e.preventDefault();
+        const newTodoDetail = { name: todoName, complete: false }
+
+        const url = `http://${'localhost:5000/api/post'}`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newTodoDetail)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                
+                data._id && setTodos([...todos, data]);
+            })
         setTodoName('')
     }
 
@@ -26,6 +42,7 @@ function TodoForm() {
                     label="Add a task"
                     value={todoName}
                     onChange={handleChange}
+                    required
                     // ref={inputRef}
                 />
                 <Button type='submit'>Add</Button>

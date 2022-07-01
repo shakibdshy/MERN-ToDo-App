@@ -27,10 +27,10 @@ router.put('/:id', async (req, res) => {
 // Delete
 router.delete('/:id', async (req, res) => {
     try {
-        const UpdatePost = await Post.findByIdAndDelete(req.params.id);
-        res.status(200).json("Post deleted");
+        const postDelete = await Post.findByIdAndDelete(req.params.id);
+        res.status(200).json({success : true});
     } catch (error) {
-        res.status(500).json(err)
+        res.status(500).json({succss : false, error : error.message})
     }
 });
 // Get

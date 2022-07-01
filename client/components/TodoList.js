@@ -13,6 +13,7 @@ function TodoList() {
     const checkComplete = (id) => {
         const newTodos = [...todos]
         newTodos[id].complete = !newTodos[id].complete;
+        console.log(todos[id])
         // setUpdate(newTodos[id]);
         fetch(`http://${'localhost:5000/api/post'}/${todos[id]._id}`, {
             method: 'PUT',
@@ -24,8 +25,8 @@ function TodoList() {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                data._id && setTodos(newTodos)
             })
-        setTodos(newTodos)
     }
 
     const handleEdit = (id) => {
@@ -60,9 +61,20 @@ function TodoList() {
     }
 
     const handleDelete = (id) => {
-        const newTodos = [...todos]
-        newTodos.splice(id, 1)
-        setTodos(newTodos)
+        const newTodos = [...todos];
+        fetch(`http://${'localhost:5000/api/post'}/${todos[id]._id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    newTodos.splice(id, 1)
+                    setTodos(newTodos)
+                }
+            })
     }
 
     return (
