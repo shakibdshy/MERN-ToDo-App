@@ -15,7 +15,7 @@ function TodoForm() {
         e.preventDefault();
         const newTodoDetail = { name: todoName, complete: false }
 
-        const url = `http://${'localhost:5000/api/post'}`;
+        const url = `https://${'pure-sierra-03433.herokuapp.com/api/post'}`;
         fetch(url, {
             method: 'POST',
             headers: {

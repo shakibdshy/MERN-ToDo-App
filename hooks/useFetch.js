@@ -10,7 +10,7 @@ function useFetch() {
         const fetchData = async () => { 
             setLoading(true)
             try {
-                const url = 'http://localhost:5000/api/post';
+                const url = 'https://pure-sierra-03433.herokuapp.com/api/post';
                 const { data } = await axios.get(url);
                 setData(data);
             } catch (error) {

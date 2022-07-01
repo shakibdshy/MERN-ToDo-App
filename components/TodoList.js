@@ -1,4 +1,4 @@
-import { Button, Checkbox, IconButton, Input, Typography } from '@material-tailwind/react'
+import { Checkbox, IconButton, Input, Typography } from '@material-tailwind/react'
 import React, { useState } from 'react'
 import { MdDelete, MdOutlineSystemUpdateAlt } from 'react-icons/md'
 import { UseStateContext } from '../context/StateContext'
@@ -15,7 +15,7 @@ function TodoList() {
         newTodos[id].complete = !newTodos[id].complete;
         console.log(todos[id])
         // setUpdate(newTodos[id]);
-        fetch(`http://${'localhost:5000/api/post'}/${todos[id]._id}`, {
+        fetch(`https://${'pure-sierra-03433.herokuapp.com/api/post'}/${todos[id]._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ function TodoList() {
         const newTodos = [...todos]
         newTodos[id].name = editValue;
         // setUpdate(newTodos[id]);
-        fetch(`http://${'localhost:5000/api/post'}/${todos[id]._id}`, {
+        fetch(`https://${'pure-sierra-03433.herokuapp.com/api/post'}/${todos[id]._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ function TodoList() {
 
     const handleDelete = (id) => {
         const newTodos = [...todos];
-        fetch(`http://${'localhost:5000/api/post'}/${todos[id]._id}`, {
+        fetch(`https://${'pure-sierra-03433.herokuapp.com/api/post'}/${todos[id]._id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
