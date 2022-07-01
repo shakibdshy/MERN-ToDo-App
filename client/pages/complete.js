@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import Todo from '../components/Todo'
 import { useStateContext } from '../context/StateContext'
 import { MdDelete, MdOutlineSystemUpdateAlt } from 'react-icons/md'
+import Footer from '../components/Footer'
 
 function complete() {
     const [todos, setTodos] = useStateContext();
@@ -24,7 +25,6 @@ function complete() {
             </Head>
 
             <Header />
-
             <section className='py-24 text-center container mx-auto px-4'>
                 <div className="container max-w-xl mx-auto px-4">
                     <Typography variant='h1'>Completed Task List</Typography>
@@ -48,6 +48,7 @@ function complete() {
                     </ul>
                 </div>
             </section>
+            <Footer />
         </>
     )
 }

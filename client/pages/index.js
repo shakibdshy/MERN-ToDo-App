@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Todo from '../components/Todo'
 
@@ -12,10 +13,10 @@ export default function Home() {
             </Head>
 
             <Header />
-
             <main className='py-24 text-center container mx-auto px-4'>
                 <Todo />
             </main>
+            <Footer />
         </div>
     )
 }

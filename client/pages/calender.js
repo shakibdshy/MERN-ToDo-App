@@ -5,6 +5,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import Head from 'next/head';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function calender() {
     const [state, setState] = useState([
@@ -23,7 +24,6 @@ function calender() {
             </Head>
 
             <Header />
-
             <section>
                 <div className="container max-w-4xl mx-auto px-4 py-24">
                     <h1 className="text-6xl font-bold mb-10">Calender</h1>
@@ -36,8 +36,8 @@ function calender() {
                         direction="horizontal"
                     />
                 </div>
-            </section>
-
+            </section>      
+            <Footer />
         </>
     )
 }
