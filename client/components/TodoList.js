@@ -6,39 +6,57 @@ import { useStateContext } from '../context/StateContext'
 function TodoList() {
     const [todos, setTodos] = useStateContext()
     const [update, setUpdate] = useState({})
-    const [edit, setEdit] = useState(0)
+    const [edit, setEdit] = useState(0);
+    const [editState, setEditState] = useState(false)
     const [editValue, setEditValue] = useState(todos.name)
 
     const checkComplete = (id) => {
         const newTodos = [...todos]
-        newTodos[id].complete = !newTodos[id].complete
+        newTodos[id].complete = !newTodos[id].complete;
+        // setUpdate(newTodos[id]);
+        fetch(`http://${'localhost:5000/api/post'}/${todos[id]._id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newTodos[id])
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
         setTodos(newTodos)
     }
 
     const handleEdit = (id) => {
-        setEdit(id)
-    }
+        console.log('clc');
+        setEdit(id);
+        setEditState(true)
+    }   
 
     const handleEditTodos = (editValue, id) => {
         const newTodos = [...todos]
         newTodos[id].name = editValue;
-        setUpdate(newTodos[id]);
+        // setUpdate(newTodos[id]);
+        fetch(`http://${'localhost:5000/api/post'}/${todos[id]._id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newTodos[id])
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
         setTodos(newTodos)
     }
 
     const handleUpdate = (id) => {
         handleEditTodos(editValue, id);
-        fetch(`http:localhost:5000/api/post/${todos[id]._id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(update)
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
         setEditValue('')
-        setEdit(0)
+        setEdit(0);
+        setEditState(false);
     }
 
     const handleDelete = (id) => {
@@ -51,7 +69,7 @@ function TodoList() {
         <>
             <ul className='flex flex-col gap-4'>
                 {
-                    edit ? (
+                    editState ? (
                         <li className={`flex items-center justify-between gap-4 text-left bg-white rounded-lg py-2 px-4 pl-2 `}>
                             <div className='flex items-center gap-2 w-full'>
                                 <Input

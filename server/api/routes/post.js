@@ -15,11 +15,13 @@ router.post('/', async (req, res) => {
 });
 // Update
 router.put('/:id', async (req, res) => {
+    const updateDoc = req.body;
+    console.log(updateDoc);
     try {
         const updatePost = await Post.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
         res.status(200).json(updatePost);
     } catch (error) {
-        res.status(500).json(err)
+        res.status(500).json(error)
     }
 });
 // Delete
