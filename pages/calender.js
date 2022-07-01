@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 function calender() {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [state, setState] = useState([
         {
             startDate: new Date(),
