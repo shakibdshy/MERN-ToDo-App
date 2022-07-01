@@ -1,10 +1,10 @@
 import { Button, Checkbox, IconButton, Input, Typography } from '@material-tailwind/react'
 import React, { useState } from 'react'
 import { MdDelete, MdOutlineSystemUpdateAlt } from 'react-icons/md'
-import { useStateContext } from '../context/StateContext'
+import { UseStateContext } from '../context/StateContext'
 
 function TodoList() {
-    const [todos, setTodos] = useStateContext()
+    const [todos, setTodos] = UseStateContext()
     const [update, setUpdate] = useState({})
     const [edit, setEdit] = useState(0);
     const [editState, setEditState] = useState(false)

@@ -2,12 +2,12 @@ import { Checkbox, IconButton, Typography } from '@material-tailwind/react'
 import Head from 'next/head'
 import React from 'react'
 import Header from '../components/Header'
-import { useStateContext } from '../context/StateContext'
+import { UseStateContext } from '../context/StateContext'
 import { MdDelete } from 'react-icons/md'
 import Footer from '../components/Footer'
 
 function complete() {
-    const [todos, setTodos] = useStateContext();
+    const [todos, setTodos] = UseStateContext();
     const completed = todos.filter(todo => todo.complete);
     
     const handleDelete = (id) => { 

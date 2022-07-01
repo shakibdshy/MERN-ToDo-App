@@ -1,10 +1,10 @@
 import { Button, Input } from '@material-tailwind/react'
 import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
-import { useStateContext } from '../context/StateContext'
+import { UseStateContext } from '../context/StateContext'
 
 function TodoForm() {
-    const [todos, setTodos] = useStateContext()
+    const [todos, setTodos] = UseStateContext()
     const [todoName, setTodoName] = useState('')
 
     const handleChange = e => {
