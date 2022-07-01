@@ -16,8 +16,8 @@ router.post('/', async (req, res) => {
 // Update
 router.put('/:id', async (req, res) => {
     try {
-        const UpdatePost = await Post.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
-        res.status(200).json(UpdatePost);
+        const updatePost = await Post.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
+        res.status(200).json(updatePost);
     } catch (error) {
         res.status(500).json(err)
     }
