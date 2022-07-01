@@ -2,9 +2,8 @@ import { Checkbox, IconButton, Typography } from '@material-tailwind/react'
 import Head from 'next/head'
 import React from 'react'
 import Header from '../components/Header'
-import Todo from '../components/Todo'
 import { useStateContext } from '../context/StateContext'
-import { MdDelete, MdOutlineSystemUpdateAlt } from 'react-icons/md'
+import { MdDelete } from 'react-icons/md'
 import Footer from '../components/Footer'
 
 function complete() {
